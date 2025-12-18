@@ -1,0 +1,7 @@
+{
+  "btech": [
+    { "name": "IIT Madras", "location": "Chennai", "contact": "+91 44 2257 8101" },
+    { "name": "IIT Bombay", "location": "Mumbai", "contact": "+91 22 2576 7001" },
+    { "name": "IIT Delhi", "location": "New Delhi", "contact": "+91 11 2659 7135" }
+  ]
+}
