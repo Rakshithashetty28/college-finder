@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>College Details</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family:"Segoe UI",sans-serif;
+  background:#f4f6fb;
+}
+.header{
+  background:linear-gradient(90deg,#1e3c72,#2a5298);
+  color:white;
+  padding:40px;
+}
+.container{
+  max-width:1000px;
+  margin:auto;
+  padding:40px;
+}
+.card{
+  background:white;
+  border-radius:20px;
+  box-shadow:0 20px 40px rgba(0,0,0,.12);
+  overflow:hidden;
+}
+.card img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+}
+.details{
+  padding:30px;
+}
+.details h1{
+  color:#1e3c72;
+}
+.badge{
+  display:inline-block;
+  background:#ffd000;
+  padding:6px 14px;
+  border-radius:20px;
+  font-weight:600;
+  margin-bottom:15px;
+}
+.info p{
+  font-size:16px;
+  margin:10px 0;
+}
+.actions{
+  margin-top:25px;
+}
+.actions a{
+  text-decoration:none;
+  padding:12px 20px;
+  border-radius:10px;
+  background:#1e3c72;
+  color:white;
+  margin-right:10px;
+  display:inline-block;
+}
+.actions a.secondary{
+  background:#ffd000;
+  color:#000;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h2>College Details</h2>
+</div>
+
+<div class="container">
+  <div class="card" id="collegeCard"></div>
+</div>
+
+<script>
+const college = JSON.parse(localStorage.getItem("selectedCollege"));
+
+if (!college) {
+  document.getElementById("collegeCard").innerHTML = "<p>No college selected</p>";
+} else {
+  document.getElementById("collegeCard").innerHTML = `
+    ${college.image ? `<img src="${college.image}">` : ""}
+    <div class="details">
+      <span class="badge">Top College</span>
+      <h1>${college.name}</h1>
+      <div class="info">
+        <p><b>Course:</b> ${college.course}</p>
+        <p><b>Location:</b> ${college.location}</p>
+        <p><b>Contact:</b> ${college.contact}</p>
+      </div>
+      <div class="actions">
+        <a href="index.html">← Back</a>
+        <a class="secondary" target="_blank"
+           href="https://www.google.com/maps/search/${encodeURIComponent(college.name)}">
+           View on Map
+        </a>
+      </div>
+    </div>
+  `;
+}
+</script>
+
+</body>
+</html>
